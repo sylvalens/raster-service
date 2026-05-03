@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+rasterio
+rasterstats
+numpy
+laspy
+shapely
+pyproj
+pydantic-settings
+python-multipart
+cligj
+click-plugins
+fiona
