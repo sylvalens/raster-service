@@ -3,7 +3,7 @@ import rasterio
 from rasterio.mask import mask
 from rasterstats import zonal_stats
 from fastapi import APIRouter, HTTPException, Query
-from app.schemas.schemas import PolygonInput, HansenStatsResponse, LossPixelsResponse, LossPixelFeature
+from app.schemas import PolygonInput, HansenStatsResponse, LossPixelsResponse, LossPixelFeature
 from app.services.geo import get_polygon_from_geojson, reproject_polygon, validate_area
 from app.core.config import settings
 import numpy as np

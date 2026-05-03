@@ -3,7 +3,7 @@ import rasterio
 from rasterio.mask import mask as rio_mask
 from rasterstats import zonal_stats
 from fastapi import APIRouter, HTTPException
-from app.schemas.schemas import (
+from app.schemas import (
     PolygonInput,
     FormsStatsResponse,
     RasterStatsResponse,

@@ -8,7 +8,7 @@ import logging
 import laspy
 import numpy as np
 from fastapi import APIRouter, HTTPException
-from app.schemas.schemas import PolygonInput, LidarStatsResponse
+from app.schemas import PolygonInput, LidarStatsResponse
 from app.services.geo import get_polygon_from_geojson, reproject_polygon, validate_area, project_to_4326
 from app.core.config import settings
 from shapely.geometry import box, mapping
