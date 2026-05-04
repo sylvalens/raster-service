@@ -1,4 +1,4 @@
-from typing import List, Tuple, Union
+from typing import Union
 from shapely.geometry import shape, Polygon, MultiPolygon
 from shapely.ops import transform
 import pyproj

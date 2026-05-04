@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Dict, Any, Optional, List, Literal
+from typing import Dict, Any, List, Literal
 
 class PolygonInput(BaseModel):
     geometry: Dict[str, Any] = Field(..., description="GeoJSON Geometry object")
