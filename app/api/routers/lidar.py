@@ -196,7 +196,7 @@ def get_lidar_stats(input: PolygonInput):
             z_stats = next((s for s in stats_stage.get("statistic", []) if s.get("name") == "Z"), None)
         else:
             z_stats = None
-            logger.debug(f"LiDAR: No stats stage found")
+            logger.debug("LiDAR: No stats stage found")
         
         if not z_stats or z_stats.get("count", 0) == 0:
             logger.debug("LiDAR: No points after crop/filter/classification")

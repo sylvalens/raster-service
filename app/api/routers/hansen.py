@@ -1,5 +1,6 @@
 import os
 import rasterio
+from rasterio.transform import xy
 from rasterio.mask import mask
 from rasterstats import zonal_stats
 from fastapi import APIRouter, HTTPException, Query
@@ -108,7 +109,7 @@ def get_forest_loss_pixels(input: PolygonInput, year: int = Query(None, descript
 
         for row, col in zip(rows, cols):
             val = out_image[row, col]
-            lon, lat = rasterio.transform.xy(out_transform, row, col)
+            lon, lat = xy(out_transform, row, col)
             features.append(LossPixelFeature(
                 type="Feature",
                 geometry={"type": "Point", "coordinates": [lon, lat]},

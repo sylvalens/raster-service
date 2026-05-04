@@ -16,7 +16,12 @@ def get_polygon_from_geojson(geojson_dict: dict) -> Union[Polygon, MultiPolygon]
     if not isinstance(geom, (Polygon, MultiPolygon)):
         if geom.geom_type == 'GeometryCollection':
             # Extract polygons and multipolygons from the collection
-            polys = [g for g in geom.geoms if isinstance(g, (Polygon, MultiPolygon))]
+            polys = []
+            for g in getattr(geom, 'geoms', []):
+                if isinstance(g, Polygon):
+                    polys.append(g)
+                elif isinstance(g, MultiPolygon):
+                    polys.extend(g.geoms)
             if not polys:
                 raise ValueError("GeometryCollection contains no polygons.")
             if len(polys) == 1:
